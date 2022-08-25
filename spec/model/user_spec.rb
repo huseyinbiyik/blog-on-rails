@@ -19,4 +19,14 @@ RSpec.describe User, type: :model do
     subject.posts_counter = 0
     expect(subject).to be_valid
   end
+
+  it 'should list three recent posts' do
+    4.times do |i|
+      Post.create(title: 'Hello', text: "This is my #{i}th post", comments_counter: 0, likes_counter: 0,
+                  author: subject)
+    end
+
+    expect(subject.three_recent_posts[0].text).to eq 'This is my 3th post'
+    expect(subject.three_recent_posts.length).to eq 3
+  end
 end
