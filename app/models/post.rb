@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :likes
 
   def update_posts_counter
-    author.update(PostsCounter: author.posts.count)
+    author.update(posts_counter: author.posts.count)
   end
 
   def last_five_comment
