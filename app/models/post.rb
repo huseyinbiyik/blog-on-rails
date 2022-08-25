@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  validates :title, presence: true
+
   def update_posts_counter
     author.update(posts_counter: author.posts.count)
   end
