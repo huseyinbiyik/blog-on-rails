@@ -6,7 +6,6 @@ RSpec.describe Post, type: :model do
     Post.create(title: 'TestTitle', text: 'TestText', comments_counter: '0', likes_counter: '0', author: u)
     Post.create(title: 'TestTitle', text: 'TestText', comments_counter: '0', likes_counter: '0', author: u)
   end
-
   before { subject.save }
 
   it 'title should be present' do
@@ -15,7 +14,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'title shoud be maximum 250 character' do
-    subject.title = 'A text more than 250 character. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pret'
+    subject.title = 'long title' * 50
     expect(subject).to_not be_valid
   end
 
