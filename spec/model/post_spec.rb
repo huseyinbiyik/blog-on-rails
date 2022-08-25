@@ -43,4 +43,13 @@ RSpec.describe Post, type: :model do
     expect(subject.update_posts_counter).to eq true
     expect(subject.author.posts_counter).to eq 2
   end
+
+  it 'should list last five comments' do
+    6.times do |i|
+      Comment.create(text: "test comment #{i}", post: subject, author: subject.author)
+    end
+
+    expect(subject.last_five_comment.last.text).to eq 'test comment 1'
+    expect(subject.last_five_comment.length).to eq 5
+  end
 end
