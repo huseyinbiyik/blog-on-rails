@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :likes
 
   validates :title, presence: true
+  validates :title, length: { maximum: 500 }
 
   def update_posts_counter
     author.update(posts_counter: author.posts.count)
