@@ -1,7 +1,11 @@
-<img src="<%= @user.photo %>">
+<div class="user-container">
+<img class="user-photo" src="<%= @user.photo %>">
+  <div class= "user-info-container">
 <h2><%= @user.name %></h2>
+    <p class="post-counter">Number of posts: <%=@user.posts_counter %></p>
+</div>
 <p><%= @user.bio %></p>
-
+</div>
 <% @user.three_recent_posts.each do |post| %>
 <p><%= post.title %><br><%= post.text %></p>
 <small>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></small>
