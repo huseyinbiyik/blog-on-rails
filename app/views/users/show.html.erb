@@ -1,1 +1,9 @@
-<h1>Show user profile</h1>
+<img src="<%= @user.photo %>">
+<h2><%= @user.name %></h2>
+<p><%= @user.bio %></p>
+
+<% @user_posts.each do |post| %>
+<p><%= post.title %><br><%= post.text %></p>
+<small>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></small>
+<%end%>
+
