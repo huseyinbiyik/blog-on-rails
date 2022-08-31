@@ -45,3 +45,40 @@ body {
   align-self: flex-end;
   font-size: 28px;
 }
+
+.user-bio {
+  text-align: left;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 24px;
+}
+
+.single-post-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.post-text {
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+}
+
+.likes-comments {
+  font-size: 18px;
+  text-align: right;
+  margin-left: auto;
+}
+
+.more-btn {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.comment-container {
+  border: 1px solid black;
+  margin-bottom: 50px;
+}

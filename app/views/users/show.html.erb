@@ -1,13 +1,19 @@
 <div class="user-container">
-<img class="user-photo" src="<%= @user.photo %>">
+  <img class="user-photo" src="<%= @user.photo %>">
   <div class= "user-info-container">
-<h2><%= @user.name %></h2>
+    <h2><%= @user.name %></h2>
     <p class="post-counter">Number of posts: <%=@user.posts_counter %></p>
+  </div>
 </div>
-<p><%= @user.bio %></p>
-</div>
+
+<p class="user-bio">Bio<br><br><%= @user.bio %></p>
+
 <% @user.three_recent_posts.each do |post| %>
-<p><%= post.title %><br><%= post.text %></p>
-<small>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></small>
+<div class="single-post-container">
+<p class="post-text"><%= post.title %><br><%= post.text %></p>
+<p class="likes-comments">Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
+</div>
 <%end%>
+
+<a class="more-btn" href=<%="/users/#{@user.id}/posts" %>>See All Posts</a>
 
