@@ -1,1 +1,16 @@
-<h1>List all posts of the specific user</h1>
+<img src="<%= @user.photo %>">
+<h2><%= @user.name %></h2>
+<p><%= @user.bio %></p>
+
+<% @user_posts.each do |post| %>
+<div>
+<p><%= post.title %><br><%= post.text %></p>
+<small>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></small>
+</div>
+<div>
+<% post.last_five_comment.each do |comment| %>
+      <h5><%= comment.author.name %></h5>
+      <p><%= comment.text %></p>
+<% end %>
+</div>
+<%end%>
