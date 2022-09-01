@@ -1,3 +1,9 @@
-<h1>Here is the list of users names, photos and post counters</h1>
-<p>This is the opening page for sure</p>
-
+<% @users.each do |user| %>
+<div class="user-container">
+  <img class="user-photo" src="<%= user.photo %>">
+  <div class= "user-info-container">
+    <h2 class="user-name"><%= user.name %></h2>
+    <p class="post-counter">Number of posts: <%= user.posts_counter %></p>
+</div>
+</div>
+<%end%>

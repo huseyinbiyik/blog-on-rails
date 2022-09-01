@@ -1,1 +1,17 @@
-<h1>List specific post of the specific user</h1>
+<div class="one-post-container">
+<div class="heading">
+<h2><%= @post.title %> by <%= @post.author.name %></h2>
+<p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
+</div>
+<p class="post-text"><%= @post.text%></p>
+</div>
+
+   <div class="comment-container">
+<% @post.comments.each do |comment| %>
+
+
+            <p><%= comment.author.name %>: <%= comment.text %></p>
+<% end %>
+
+      </div>
+
