@@ -81,4 +81,17 @@ body {
 .comment-container {
   border: 1px solid black;
   margin-bottom: 50px;
+  text-align: left;
+}
+
+.one-post-container {
+  border: 1px solid black;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 }
