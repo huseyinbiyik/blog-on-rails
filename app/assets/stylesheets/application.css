@@ -17,6 +17,7 @@ body {
   text-align: center;
   padding: 50px;
 }
+
 .user-container {
   display: flex;
   margin-bottom: 30px;
@@ -35,6 +36,7 @@ body {
   font-size: 72px;
   margin: 0;
 }
+
 .user-photo {
   width: 150px;
   height: 150px;
@@ -61,6 +63,7 @@ body {
   margin-bottom: 30px;
   padding: 10px;
 }
+
 .post-text {
   width: 100%;
   font-size: 24px;
