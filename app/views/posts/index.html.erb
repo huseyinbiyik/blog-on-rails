@@ -6,7 +6,7 @@
       </div>
 </div>
 
-<% @user_posts.each do |post| %>
+<% @posts.each do |post| %>
       <div class="single-post-container">
             <p class="post-text"><%= post.title %><br><%= post.text %></p>
             <p class="likes-comments">Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
