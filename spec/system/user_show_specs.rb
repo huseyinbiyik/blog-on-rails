@@ -38,4 +38,10 @@ RSpec.describe 'Users/show page', type: :system do
     expect(page).to have_content(fourth_post.text)
     expect(page).not_to have_content(first_post.text)
   end
+
+  it 'directs you the users profile page' do
+    visit "/users/#{@user1.id}"
+    click_link 'See All Posts'
+    expect(page).to have_current_path("/users/#{@user1.id}/posts")
+  end
 end
