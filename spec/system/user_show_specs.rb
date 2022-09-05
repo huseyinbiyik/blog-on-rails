@@ -47,7 +47,6 @@ RSpec.describe 'Users/show page', type: :system do
 
   it 'redirects me to that post\'s show page' do
     first_post = Post.create(title: 'Hello', text: 'This is my first post', author: @user1)
-
     visit "/users/#{@user1.id}"
     click_on first_post.title
     expect(page).to have_current_path("/users/#{@user1.id}/posts/#{first_post.id}")
