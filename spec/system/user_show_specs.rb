@@ -14,4 +14,11 @@ RSpec.describe 'Users/show page', type: :system do
     visit "/users/#{@user1.id}"
     expect(page).to have_content(@user1.name)
   end
+
+  it 'shows number of posts, post counter' do
+    Post.create(title: 'Hello', text: 'This is my first post', author: @user1)
+    Post.create(title: 'Hello2', text: 'This is my second post', author: @user1)
+    visit "/users/#{@user1.id}"
+    expect(page).to have_content("Number of posts: #{@user1.posts_counter}")
+  end
 end
