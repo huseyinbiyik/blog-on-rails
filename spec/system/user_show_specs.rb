@@ -26,4 +26,16 @@ RSpec.describe 'Users/show page', type: :system do
     visit "/users/#{@user1.id}"
     expect(page).to have_content(@user1.bio)
   end
+
+  it 'shows three recent posts' do
+    first_post = Post.create(title: 'Hello', text: 'This is my first post', author: @user1)
+    second_post = Post.create(title: 'Hello2', text: 'This is my second post', author: @user1)
+    third_post = Post.create(title: 'Hello3', text: 'This is my third post', author: @user1)
+    fourth_post = Post.create(title: 'Hello3', text: 'This is my third post', author: @user1)
+    visit "/users/#{@user1.id}"
+    expect(page).to have_content(second_post.text)
+    expect(page).to have_content(third_post.text)
+    expect(page).to have_content(fourth_post.text)
+    expect(page).not_to have_content(first_post.text)
+  end
 end
