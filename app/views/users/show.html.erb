@@ -10,7 +10,11 @@
 
 <% @user.three_recent_posts.each do |post| %>
 <div class="single-post-container">
-<p class="post-text"><%= post.title %><br><%= post.text %></p>
+  <a href="/users/<%= @user.id%>/posts/<%= post.id %>">
+    <p class="post-text">
+      <%= post.title %><br><%= post.text %>
+    </p>
+  </a>
 <p class="likes-comments">Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
 </div>
 <%end%>
