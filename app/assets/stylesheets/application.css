@@ -98,3 +98,25 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+#user_email,
+#user_password {
+  width: calc(50% - 20px);
+  border: 3px solid black;
+  height: 40px;
+}
+
+input {
+  width: calc(50% - 20px);
+  border: 3px solid black;
+  height: 40px;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+input[type="submit"] {
+  width: 50%;
+  border: 3px solid black;
+  height: 40px;
+  padding-left: 20px;
+}
