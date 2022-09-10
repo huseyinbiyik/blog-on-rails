@@ -1,28 +1,36 @@
 <div class="one-post-container">
-<div class="heading">
-<h2><%= @post.title %> by <%= @post.author.name %></h2>
-<p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
-</div>
-<p class="post-text"><%= @post.text%></p>
+  <div class="heading">
+    <h2>
+      <%= @post.title %> by <%= @post.author.name %>
+    </h2>
 
-<%= form_with model: @like, url: likes_new_path do |form|%>
-  <%= form.hidden_field :post_id, value: @post.id %>
-  <%= form.submit "♥︎"  %>
-<% end %>
+    <p>
+    Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %>
+    </p>
+
+  </div>
+  <p class="post-text">
+    <%= @post.text%>
+  </p>
+
+  <%= form_with model: @like, url: likes_new_path do |form|%>
+    <%= form.hidden_field :post_id, value: @post.id %>
+    <%= form.submit "♥︎"  %>
+  <% end %>
 </div>
 
-   <div class="comment-container">
-<% @post.comments.each do |comment| %>
-      <p><%= comment.author.name %>: <%= comment.text %></p>
-<% end %>
-<%= form_with model: @comment, url: comments_new_path do |form| %>
-<div>
-  <%= form.hidden_field :author_id, value: @post.author.id %>
-  <%= form.hidden_field :post_id, value: @post.id %>
-  <%= form.text_area :text, placeholder: "text" %><br><br>
-  <%= form.submit %>
-</div>
-<%end%>
+<div class="comment-container">
+  <% @post.comments.each do |comment| %>
+    <p><%= comment.author.name %>: <%= comment.text %></p>
+  <% end %>
+  <%= form_with model: @comment, url: comments_new_path do |form| %>
+    <div>
+      <%= form.hidden_field :author_id, value: @post.author.id %>
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.text_area :text, placeholder: "text" %><br><br>
+      <%= form.submit %>
+    </div>
+  <%end%>
 </div>
 
 
