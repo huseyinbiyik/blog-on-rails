@@ -17,10 +17,19 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(title: params[:post][:title], text: params[:post][:text], author_id: current_user.id)
     if @post.save
+      flash[:notice] = 'Post successfully added!'
       redirect_to "/users/#{current_user.id}/posts"
 
     else
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
+    @post.destroy
+    flash[:notice] = 'Post Deleted Successfully'
+    redirect_back fallback_location: root_path
   end
 end

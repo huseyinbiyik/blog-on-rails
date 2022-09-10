@@ -12,6 +12,7 @@
             <p class="likes-comments">
                   Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %>
             </p>
+
             <div class="comment-container">
                   <% post.last_five_comment.each do |comment| %>
                         <p><%= comment.author.name %>: <%= comment.text %></p>

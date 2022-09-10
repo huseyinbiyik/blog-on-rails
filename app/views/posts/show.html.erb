@@ -11,6 +11,15 @@
 <% end %>
 </div>
 
+   <%= link_to  user_post_path(@post.author_id, @post.id) , method: :delete do %>
+            <% if can? :destroy, @post%>
+            <p>
+            🗑
+            </p>
+    <% end %>
+    <% end %>
+
+
    <div class="comment-container">
 <% @post.comments.each do |comment| %>
       <p><%= comment.author.name %>: <%= comment.text %></p>
