@@ -1,0 +1,22 @@
+<div class="user-container">
+      <img class="user-photo" src="<%= @user.photo %>">
+      <div class= "user-info-container">
+            <h2><%= @user.name %></h2>
+            <p class="post-counter">Number of posts: <%=@user.posts_counter%></p>
+      </div>
+</div>
+<% @posts.each do |post| %>
+      <div class="single-post-container">
+      <%# need to fix the css  %>
+                  <p class="post-text"> <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><%= post.title %></a><br><%= post.text %></p>
+            <p class="likes-comments">
+                  Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %>
+            </p>
+            <div class="comment-container">
+                  <% post.last_five_comment.each do |comment| %>
+                        <p><%= comment.author.name %>: <%= comment.text %></p>
+                  <% end %>
+            </div>
+</div>
+<%end%>
+<button>Pagination</button>
